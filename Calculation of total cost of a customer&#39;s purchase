@@ -1,0 +1,20 @@
+item_prices = [10.00, 20.00, 30.00]  
+item_quantities = [3, 2, 1]  
+discount_rate = 0.10  
+tax_rate = 0.08  
+
+
+subtotal = sum(item_prices[i] * item_quantities[i] for i in range(len(item_prices)))
+
+discount = subtotal * discount_rate
+
+total_before_taxes = subtotal - discount
+
+taxes = total_before_taxes * tax_rate
+final_total_cost = total_before_taxes + taxes
+
+print("Subtotal: ${:.2f}".format(subtotal))
+print("Discount: ${:.2f}".format(discount))
+print("Total before taxes: ${:.2f}".format(total_before_taxes))
+print("Taxes: ${:.2f}".format(taxes))
+print("Final Total Cost: ${:.2f}".format(final_total_cost))
