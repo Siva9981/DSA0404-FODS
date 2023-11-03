@@ -1,0 +1,10 @@
+
+product_prices = [20, 30, 25]
+
+total_revenue = sum(product_prices)
+
+number_of_products = len(product_prices)
+
+average_price = total_revenue / number_of_products
+
+print(f"The average price of products sold in the past month is: ${average_price:.2f}")
