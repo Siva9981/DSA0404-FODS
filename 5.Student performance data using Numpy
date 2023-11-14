@@ -1,27 +1,17 @@
-import pandas as pd
+import numpy as np
 
-data = {
-    'order_id': [1, 2, 3, 4, 5, 6],
-    'customer': ['A', 'B', 'A', 'C', 'B', 'C'],
-    'product': ['X', 'Y', 'X', 'Z', 'Y', 'X'],
-    'quantity': [2, 3, 1, 4, 2, 5],
-    'order_date': ['2023-01-01', '2023-01-02', '2023-01-03', '2023-01-01', '2023-01-04', '2023-01-02']
-}
+data = np.array([
+    [85, 90, 78, 88],
+    [92, 87, 80, 89],
+    [78, 85, 90, 88],
+    [85, 90, 92, 78]
+])
 
-order_data = pd.DataFrame(data)
+average_scores = np.mean(data, axis=1)
+subject_with_highest_average = np.argmax(average_scores)
 
-customer_order_counts = order_data.groupby('customer')['order_id'].count()
-print("Total number of orders made by each customer:")
-print(customer_order_counts)
-print()
+print("Average Scores for Each Subject:")
+for subject, avg_score in enumerate(average_scores):
+    print(f"Subject {subject + 1}: {avg_score}")
 
-average_order_quantity = order_data.groupby('product')['quantity'].mean()
-print("Average order quantity for each product:")
-print(average_order_quantity)
-print()
-
-earliest_order_date = order_data['order_date'].min()
-latest_order_date = order_data['order_date'].max()
-print("Earliest order date: ", earliest_order_date)
-print("Latest order date: ", latest_order_date)
-n 
+print(f"\nSubject with the Highest Average Score: Subject {subject_with_highest_average + 1}")
